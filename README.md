@@ -21,29 +21,6 @@ Our investor specializes in acquiring undervalued assets. This analysis will hel
 - Build an interactive dashboard for data exploration.
 - Develop skills in Python, SQL, and data visualization.
 
-## Project Structure
-
-```plaintext
-├── .vscode/
-│   └── settings.json
-├── .github/
-│   └── workflows/
-│       └── unittests.yml
-├── .gitignore
-├── requirements.txt
-├── README.md
-├── src/
-│   ├── __init__.py
-├── notebooks/
-│   ├── __init__.py
-│   └── README.md
-├── tests/
-│   ├── __init__.py
-└── scripts/
-    ├── __init__.py
-    └── README.md
-```
-
 ## Key Tasks
 
 ### Task 1: User Overview Analysis
@@ -75,27 +52,6 @@ Our investor specializes in acquiring undervalued assets. This analysis will hel
 - **Containerization**: Docker
 - **CI/CD**: GitHub Actions
 
-## Tutorials Schedule
-
-- **Wednesday**: Data Pre-processing
-- **Thursday**: EDA and Data Modeling
-- **Friday**: Dashboard Development
-- **Monday & Tuesday**: Question Answering
-
-## Deliverables
-
-- Interim Submission: Insights from Task 1 and 2 in slides.
-- Final Submission: Comprehensive report on all tasks.
-- GitHub repository link.
-- Deployed dashboard link.
-
-## References
-
-- Exploratory Data Analysis in Python
-- Non-Graphical Univariate Analysis
-- Bivariate Analysis Techniques
-- Correlation and PCA Analysis
-
 ## Setup and Installation
 
 1. Clone the repository:
@@ -104,7 +60,7 @@ Our investor specializes in acquiring undervalued assets. This analysis will hel
    ```
 2. Navigate to the project directory:
    ```bash
-   cd tellco-telecom-data-analysis
+   cd tellco-data-insights
    ```
 3. Install the required packages:
    ```bash
@@ -119,10 +75,3 @@ Our investor specializes in acquiring undervalued assets. This analysis will hel
 ## License
 
 This project is licensed under the MIT License.
-
----
-
-For more details, please refer to the project documentation and tutorials provided.
-```
-
-Feel free to customize the content as per your specific project details and requirements.
