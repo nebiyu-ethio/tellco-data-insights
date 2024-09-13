@@ -21,9 +21,13 @@ def app():
     db_port = os.getenv('DB_PORT')
     db_name = os.getenv('DB_NAME')
 
+    print(f"DB_PORT: {db_port}")  # Debugging line to check the port
+
     # Create the connection string
     connection_string = f'postgresql+psycopg2://{db_user}:{db_password}@{db_host}:{db_port}/{db_name}'
     engine = create_engine(connection_string)
+
+    print(f"Connecting to DB: {db_name} at {db_host}:{db_port} with user {db_user}")
 
     # Query the data
     query = 'SELECT * FROM xdr_data'
