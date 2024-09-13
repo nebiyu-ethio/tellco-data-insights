@@ -14,11 +14,11 @@ def app():
     load_dotenv('../.env/.env')
 
     # Retrieve database connection details from environment variables
-    db_user = os.getenv('DB_USER')
-    db_password = os.getenv('DB_PASSWORD')
-    db_host = os.getenv('DB_HOST')
-    db_port = os.getenv('DB_PORT')
-    db_name = os.getenv('DB_NAME')
+    db_user = 'postgres'
+    db_password = '%TGBnhy6'
+    db_host = 'localhost'
+    db_port = '5432'
+    db_name = 'telecom'
 
     print(f"DB_PORT: {db_port}")  # Debugging line to check the port
 
