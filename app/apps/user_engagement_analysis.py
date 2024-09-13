@@ -9,6 +9,7 @@ from sqlalchemy import create_engine
 from dotenv import load_dotenv
 import os
 import streamlit as st
+import logging
 
 def app():
     # Load environment variables from .env file
@@ -27,7 +28,8 @@ def app():
     connection_string = f'postgresql+psycopg2://{db_user}:{db_password}@{db_host}:{db_port}/{db_name}'
     engine = create_engine(connection_string)
 
-    print(f"Connecting to DB: {db_name} at {db_host}:{db_port} with user {db_user}")
+    logging.basicConfig(level=logging.INFO)
+    logging.info(f"Connecting to DB: {db_name} at {db_host}:{db_port} with user {db_user}")
 
     # Query the data
     query = 'SELECT * FROM xdr_data'
