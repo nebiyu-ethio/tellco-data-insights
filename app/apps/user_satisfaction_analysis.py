@@ -17,7 +17,7 @@ def app():
     # Retrieve database connection details from environment variables
     db_user = 'postgres'
     db_password = '%TGBnhy6'
-    db_host = 'host'
+    db_host = 'localhost'
     db_port = '5432'
     db_name = 'telecom'
 
