@@ -50,3 +50,12 @@ tzdata==2024.1
 urllib3==2.2.1
 watchdog==4.0.0
 seaborn==0.13.2
+streamlit
+pandas
+numpy
+matplotlib
+seaborn
+scikit-learn
+sqlalchemy
+psycopg2-binary
+python-dotenv
