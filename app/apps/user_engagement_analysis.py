@@ -9,18 +9,11 @@ from sqlalchemy import create_engine
 from dotenv import load_dotenv
 import os
 import streamlit as st
-import psycopg2
-
-def init_connection():
-    return psycopg2.connect(**st.secrets["postgres"])
-
-conn = init_connection()
 
 def app():
-
     # Query the data
-    query = 'SELECT * FROM xdr_data'
-    data = pd.read_sql(query)
+    conn = st.connection("telecom")
+    data = conn.query("SELECT * FROM xdr_data")
 
     # Title of the section
     st.title("User Engagement Analysis")
