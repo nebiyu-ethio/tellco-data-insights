@@ -67,10 +67,22 @@ Our investor specializes in acquiring undervalued assets. This analysis will hel
    pip install -r requirements.txt
    ```
 
-## Usage
+### Usage
 
-- Run scripts for data analysis and model training.
-- Use the Streamlit dashboard for interactive data exploration.
+Once the environment is set up and the packages are installed, run the project locally:
+
+1. **Start the Streamlit Dashboard**  
+   Navigate to the `app` directory in the `dashboard-dev`and start the Streamlit dashboard:
+   ```bash
+   cd app
+   streamlit run main.py
+   ```
+
+   This will launch the dashboard, providing an interactive interface for exploring the analyzed data.
+
+### Deployed Dashboard URL
+
+The deployed version of the Streamlit dashboard can be accessed at: [TELLCO DATA INSIGHTS](https://tellco-data-insights.streamlit.app/).
 
 ## License
 
