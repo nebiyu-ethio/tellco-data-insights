@@ -104,12 +104,16 @@ def app():
 
     # Task 3.4: Perform k-means clustering
     features = aggregated_data[['Total_TCP', 'Total_RTT', 'Total_Throughput']]
+
+    # Apply KMeans clustering
     kmeans = KMeans(n_clusters=3, random_state=0)
     kmeans.fit(features)
     aggregated_data['cluster'] = kmeans.labels_
 
-    st.subheader("Cluster Descriptions")
-    cluster_description = aggregated_data.groupby('cluster').mean()
-    st.write(cluster_description)
+    numeric_cols = aggregated_data.select_dtypes(include='number').columns
 
-# Note: Ensure to call this function in your main app script.
+
+    # Describe each cluster with only numeric columns
+    cluster_description = aggregated_data.groupby('cluster')[numeric_cols].mean()
+    print("\nCluster Descriptions:")
+    print(cluster_description)
