@@ -8,30 +8,18 @@ from sqlalchemy import create_engine
 from dotenv import load_dotenv
 import os
 import streamlit as st
-import logging
+import psycopg2
+
+@st.experimental_singleton
+def init_connection():
+    return psycopg2.connect(**st.secrets["postgres"])
+
+conn = init_connection()
 
 def app():
-    # Load environment variables from .env file
-    load_dotenv('../.env/.env')
-
-    # Retrieve database connection details from environment variables
-    db_user = 'postgres'
-    db_password = '%TGBnhy6'
-    db_host = 'localhost'
-    db_port = '5432'
-    db_name = 'telecom'
-
-    print(f"DB_PORT: {db_port}")  # Debugging line to check the port
-
-    # Create the connection string
-    connection_string = f'postgresql+psycopg2://{db_user}:{db_password}@{db_host}:{db_port}/{db_name}'
-    engine = create_engine(connection_string)
-
-    logging.basicConfig(level=logging.INFO)
-    logging.info(f"Connecting to DB: {db_name} at {db_host}:{db_port} with user {db_user}")
     # Query the data
     query = 'SELECT * FROM xdr_data_cleaned'
-    data_cleaned = pd.read_sql(query, engine)
+    data_cleaned = pd.read_sql(query)
 
     # Display the cleaned data
     st.title("User Satisfaction Analysis")
