@@ -10,8 +10,8 @@ import streamlit as st
 
 def app():
     # Query the data
-    conn = st.connection("telecom")
-    data = conn.query("SELECT * FROM xdr_data")
+    csv_file_path = os.path.join(os.path.dirname(__file__), 'xdr_data.csv')
+    data = pd.read_csv(csv_file_path)
 
     # Display the data in Streamlit
     st.title("User Overview Analysis")
