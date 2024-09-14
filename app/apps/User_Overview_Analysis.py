@@ -9,7 +9,6 @@ import os
 import streamlit as st
 import psycopg2
 
-@st.experimental_singleton
 def init_connection():
     return psycopg2.connect(**st.secrets["postgres"])
 
