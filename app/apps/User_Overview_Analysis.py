@@ -73,25 +73,24 @@ def app():
     st.subheader("Data Description")
     st.write(data.describe())
 
+    # Calculate total data (DL + UL)
+    data['total_data'] = data[
+    ['Social Media DL (Bytes)', 'Google DL (Bytes)', 'Email DL (Bytes)', 
+     'Youtube DL (Bytes)', 'Netflix DL (Bytes)', 'Gaming DL (Bytes)', 'Other DL (Bytes)',
+     'Social Media UL (Bytes)', 'Google UL (Bytes)', 'Email UL (Bytes)', 
+     'Youtube UL (Bytes)', 'Netflix UL (Bytes)', 'Gaming UL (Bytes)', 'Other UL (Bytes)']
+    ].sum(axis=1)
+
+    # Segment into deciles based on total duration, dropping duplicate bin edges
+    data['duration_decile'] = pd.qcut(data['Dur. (ms)'], 10, labels=False, duplicates='drop')
+
+    # Compute total data per decile class
+    total_data_per_decile = data.groupby('duration_decile')['total_data'].sum()
+
+    print(total_data_per_decile)
+
     # Histograms
     st.subheader("Histograms of Duration and Total Data")
     fig, ax = plt.subplots(1, 2, figsize=(15, 5))
     data[['Dur. (ms)', 'total_data']].hist(bins=30, ax=ax)
     st.pyplot(fig)
-
-    # Scatter plot
-    st.subheader("Scatter Plot of Duration vs Total Data")
-    sns.scatterplot(x='Dur. (ms)', y='total_data', data=data)
-    st.pyplot()
-
-    # PCA
-    st.subheader("PCA of Total Data and Duration")
-    pca = PCA(n_components=2)
-    principal_components = pca.fit_transform(data[['total_data', 'Dur. (ms)']])
-    plt.scatter(principal_components[:, 0], principal_components[:, 1])
-    plt.title('PCA of Total Data and Duration')
-    plt.xlabel('Principal Component 1')
-    plt.ylabel('Principal Component 2')
-    st.pyplot()
-
-# Note: Ensure to call this function in your main app script.
